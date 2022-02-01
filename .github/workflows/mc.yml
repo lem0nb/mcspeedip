@@ -16,6 +16,7 @@ jobs:
           wget https://github.com/bangbang93/minecraft-proxy/releases/download/v1.4.5/minecraft-proxy.tar.gz
           tar -zxvf minecraft-proxy.tar.gz
           chmod +x ./bin/mcproxy
+          rm config/config.yml
           wget -P config https://github.com/lem0nb/mcspeedip/raw/main/config.yml
           
      - name: Start
