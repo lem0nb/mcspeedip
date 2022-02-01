@@ -13,15 +13,13 @@ jobs:
      - name: Download
        run: |
           sudo -i
-          cd /root
           wget https://github.com/bangbang93/minecraft-proxy/releases/download/v1.4.5/minecraft-proxy.tar.gz
           tar -zxvf minecraft-proxy.tar.gz
           chmod +x ./bin/mcproxy
-          wget -P /root/config https://github.com/lem0nb/mcspeedip/raw/main/config.yml
+          wget -P config https://github.com/lem0nb/mcspeedip/raw/main/config.yml
           
      - name: Start
        run: |
-          cd /root/bin
-          screen ./mcproxy
+          screen ./bin/mcproxy
      - name: Sleep
        run: sleep 6h
