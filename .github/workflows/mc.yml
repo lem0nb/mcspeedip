@@ -20,6 +20,6 @@ jobs:
           
      - name: Start
        run: |
-          screen ./bin/mcproxy
+          nohup ./bin/mcproxy &
      - name: Sleep
        run: sleep 6h
