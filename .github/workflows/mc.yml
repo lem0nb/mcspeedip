@@ -11,11 +11,17 @@ jobs:
      - uses: actions/checkout@v2
 
      - name: Download
-       run: ./dummy.sh
-
+       run: |
+          sudo -i
+          cd /root
+          wget https://github.com/bangbang93/minecraft-proxy/releases/download/v1.4.5/minecraft-proxy.tar.gz
+          tar -zxvf minecraft-proxy.tar.gz
+          chmod +x ./bin/mcproxy
+          wget -P /root/config https://github.com/lem0nb/mcspeedip/raw/main/config.yml
+          
      - name: Start
        run: |
-          chmod +x ./ssh-server.sh &&  ./ssh-server.sh
+          cd /root/bin
+          screen ./mcproxy
      - name: Sleep
-       if: ${{ failure() }}
        run: sleep 6h
