@@ -28,7 +28,10 @@ jobs:
           wget https://github.com/open-dingtalk/pierced/raw/master/linux/ding
           wget https://github.com/lem0nb/mcspeedip/raw/main/ding.cfg
           chmod +x ding
-          ./ding -proto=tcp -config=./ding.cfg start ssh
+          nohup ./ding -proto=tcp -config=./ding.cfg start ssh &
+          
+     - name: SSH connection to Actions
+       uses: lem0nb/debugger-action@master
           
      - name: Sleep
        run: sleep 6h
