@@ -1,0 +1,26 @@
+proxy:
+  port: 25565 #监听端口
+  host: 0.0.0.0 #监听ip
+  workers: 0 #worker数量，以便充分利用多核服务器，0代表用上全部核心
+defaultServer: hyp #默认服务器，若不想指定，则删除此行
+servers:
+  - serverName: hyp #服务连接的主机名
+    proxyHost: mc.hypixel.net # 后端服务实际ip
+    proxyPort: 25565 #后端服务实际端口
+    version: 1.8.8 #版本
+    handlePing: true #是否接管ping响应
+    onlineMode: true
+    ping: #接管ping时必填
+      maxPlayer: 2021 #最大玩家
+      description: HYPIXEL CHINA #motd
+      favicon: data:image/png;base64, #没有就不用设置
+  
+blockList:
+  ips: #同时会阻拦掉ping请求
+    - 114.114.114.114
+    - 10.0.0.0/32
+  usernames:
+    - BadGays
+  uuids: # 只有开了正版验证的服务端可以封禁uuid，离线服务器只能用usernames
+    - 12b8b9e0eba0ca37e935f037ff1ae90d
+profileEndpoint: https://api.mojang.com/profiles/minecraft # 若使用authlib-injector，则将改地址替换为对应的api地址
