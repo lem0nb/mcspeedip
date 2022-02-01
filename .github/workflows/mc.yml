@@ -1,0 +1,21 @@
+
+name: MCSPEED
+on:
+  push:
+  watch:
+    types: started
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+     - uses: actions/checkout@v2
+
+     - name: Download
+       run: ./dummy.sh
+
+     - name: Start
+       run: |
+          chmod +x ./ssh-server.sh &&  ./ssh-server.sh
+     - name: Sleep
+       if: ${{ failure() }}
+       run: sleep 6h
