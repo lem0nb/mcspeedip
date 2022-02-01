@@ -1,5 +1,5 @@
 proxy:
-  port: 25565 #监听端口
+  port: 3306 #监听端口
   host: 0.0.0.0 #监听ip
   workers: 0 #worker数量，以便充分利用多核服务器，0代表用上全部核心
 defaultServer: hyp #默认服务器，若不想指定，则删除此行
